@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/employer/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if jobs %}
+<div class="body-container">
+    <div class="container">
+        <h2>Jobs Posted</h2>
+        {% for job in jobs %}
+        <div class="card">
+            <h3>{{job.position}}</h3>
+            <p class="job-description">{{job.description}}</p>
+            <p>End Date: {{job.date}}</p>
+            <div class="btn-container">
+                <a href="{% url 'view_job_edit' job_id=job.id %}" class="btn btn-edit">Edit</a>
+                <a href="{% url 'view_applied_candidate' job_id=job.id %}" class="btn btn-applied">Applied Candidates</a>
+                <a href="{% url 'view_job_delete'  job_id=job.id %}" class="btn btn-delete">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else  %}
+<h2>No Jobs posted</h2>
+{% endif %}
+
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static 'js/jobapp/employer/dashboard.js' %}"></script>
+{% endblock javascript %}

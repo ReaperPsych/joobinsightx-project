@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+  {% include "jobapp/components/search_menu_tile.html" %}
+
+  {% if search_results %}
+  {% include "jobapp/components/view_job_tile.html" %}
+  {% else %}
+  <style>
+    h2 {
+        text-align: center;
+    }
+    
+    h2 span {
+        display: inline-block;
+    }
+    
+  </style>
+  <h2><span>Requested Job didn't found</span></h2>
+
+  {% endif %}
+
+{% endblock %}

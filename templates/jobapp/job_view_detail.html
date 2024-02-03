@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% load static %} {% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/job_view_detail.css' %}" />
+{% endblock %} {% block content %} {% if job_detail %}
+
+<div class="body-container">
+  <header>
+    <h1>{{job_detail.position}}</h1>
+    <h2><a href="{{job_detail.website}}">{{employer}}</a></h2>
+    <h2>pepsicola</h2>
+    <p>Apply Before: {{job_detail.date}}</p>
+  </header>
+
+  <section class="job-description">
+    <h2>Job Description</h2>
+    <p>{{job_detail.description}}</p>
+  </section>
+
+  <section class="basic-info">
+    <h2>Basic Job Information</h2>
+    <table>
+      <tr>
+        <th>Job Category</th>
+        <td>{{job_detail.category}}</td>
+      </tr>
+      <tr>
+        <th>Job Level</th>
+        <td>{{job_detail.level}}</td>
+      </tr>
+      <tr>
+        <th>No. of Vacancies</th>
+        <td>{{job_detail.number_vacancy}}</td>
+      </tr>
+      <tr>
+        <th>Employment Type</th>
+        <td>{{job_detail.emp_type}}</td>
+      </tr>
+      <tr>
+        <th>Offered Salary</th>
+        <td>{{job_detail.salary}}</td>
+      </tr>
+      <tr>
+        <th>Apply Before (Deadline)</th>
+        <td>{{job_detail.date}}</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="job-specification">
+    <h2>Job Specification</h2>
+    <table>
+      <tr>
+        <th>Education Level</th>
+        <td>{{job_detail.edu_level}}</td>
+      </tr>
+      <tr>
+        <th>Experience Required</th>
+        <td>{{job_detail.exp_req}}</td>
+      </tr>
+      <tr>
+        <th>Professional Skills Required</th>
+        <td>{{job_detail.skill_req}}</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="other-specification">
+    <h2>Other Specifications</h2>
+    <ul>
+      <li>{{job_detail.other_spec1}}.</li>
+      <li>{{job_detail.other_spec2}}.</li>
+      <li>{{job_detail.other_spec3}}.</li>
+      <li>{{job_detail.other_spec4}}.</li>
+      <li>{{job_detail.other_spec5}}.</li>
+    </ul>
+  </section>
+
+  <section class="other-specification">
+    <h2>Job Description</h2>
+    <ul>
+      <li>{{job_detail.job_desc1}}.</li>
+      <li>{{job_detail.job_desc2}}.</li>
+      <li>{{job_detail.job_desc3}}.</li>
+      <li>{{job_detail.job_desc4}}.</li>
+      <li>{{job_detail.job_desc5}}.</li>
+    </ul>
+  </section>
+
+  <div class="buttons">
+
+    {% if user_account_type == '1' %}
+    {% if job_detail.id not in applied_job_ids %}
+      <a href="{% url 'apply_job' job_id=job_detail.id %}">
+        <button class="apply-button">Apply Now</button>
+      </a>
+    {% else %}
+      <button class="apply-button">Applied</button>
+    {% endif %}
+  
+    {% if job_detail.id in saved_job_ids %}
+      <a href="{% url 'save_job' job_id=job_detail.id %}">
+        <button class="save-button">Unsave Job</button>
+      </a>
+    {% else %}
+      <a href="{% url 'save_job' job_id=job_detail.id %}">
+        <button class="save-button">Save Job</button>
+      </a>
+    {% endif %}
+  {% elif user_account_type == '2' %}
+    <a href="{% url 'view_job_edit' job_id=job_detail.id %}">
+      <button class="update-button">Update Job</button>
+    </a>
+  {% endif %}
+  
+  
+  
+  </div>
+</div>
+{% else %}
+<h2>Something went wrong please try again the searched didnt appear</h2>
+{% endif %} {% endblock %}

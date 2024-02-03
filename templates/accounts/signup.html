@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/accounts/signup.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+
+  <title></title>
+  <title>Signup</title>
+</head>
+<body>
+
+
+  <div class="container">
+    <h3>Who are you?</h3>
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Employer')">Employer</button>
+      <button class="tablinks" onclick="openTab(event, 'Employee')">Employee</button>
+    </div>
+
+    <div id="Employer" class="tabcontent">
+      <form action="{% url 'signup_auth' %}" method="post">
+      {% csrf_token %}
+
+        <input type="hidden" value="2" name="account_type">
+
+        <div class="input-container">
+          <i class="material-icons">account_circle</i>
+          <input type="text" class="company_info" name="name" placeholder="Enter Company Name">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">email</i>
+          <input type="email" class="company_info" name="email" placeholder="Enter Company Email">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">lock</i>
+          <input type="password" class="company_info" name="pass1" placeholder="Enter password">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">lock</i>
+          <input type="password" class="company_info" name="pass2" placeholder="Confirm password">
+        </div>
+        
+        <!-- hidden -->
+        <input type="hidden" name="phone_num" value="">
+        <input type="hidden" name="gender" value="">
+
+        <button type="submit">Sign UP</button>
+        <p class="login"> Already have an account <a class="login_text" href="{% url 'login_auth' %}">Log In</a></p>
+        <p class="home"><a href="{% url "home" %}">Home</a></p>
+
+
+      </form>
+    </div>
+
+
+    <div id="Employee" class="tabcontent">
+      <form action="{% url 'signup_auth' %}" method="post">
+      {% csrf_token %}
+
+        <input type="hidden" value="1" name="account_type">
+
+        <div class="input-container">
+          <i class="material-icons">person</i>
+          <input type="text" class="personal_info" name="name" placeholder="Enter Your Name">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">email</i>
+          <input type="email" class="personal_info" name="email" placeholder="Enter Your Email">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">lock</i>
+          <input type="password" class="personal_info" name="pass1" placeholder="Enter password">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">lock</i>
+          <input type="password" class="personal_info" name="pass2" placeholder="Confirm password">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">call</i>
+          <input type="number" class="personal_info" name="phone_num" placeholder="Phone number">
+        </div>
+
+        <div class="input-container">
+          <i class="material-icons">wc</i>
+          <input type="radio" class="personal_info" name = "gender" value="M">Male&nbsp;&nbsp;
+          <br>
+          <input type="radio" class="personal_info" name = "gender" value="F">Female
+        </div>
+
+        <button type="submit">Sign UP</button>
+        <p class="login"> Already have an account <a class="login_text" href="{% url 'login_auth' %}">Log In</a></p>
+        <p class="home"><a href="{% url "home" %}">Home</a></p>
+
+
+      </form>
+    </div>
+  </div>
+
+  {% include 'alerts.html' %}
+
+
+  <script src="{% static 'js/accounts/signup.js' %}"></script>
+</body>
+</html>

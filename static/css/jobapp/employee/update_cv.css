@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form{
+    width: 1000px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    /* background-color: aliceblue; */
+    padding: 20px;
+    margin: 20px 0;
+  
+  }
+  
+  .head-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .form-group input {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .section-about {
+    margin: 20px;
+    border-bottom: 1px solid black;
+  }
+  
+  .section-about h2 {
+    text-align: center;
+  }
+  
+  
+  
+  .info{
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: underline;
+  }
+  .section-edu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+  
+  }
+  
+  .section-pro{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+  }
+
+  .section-skill{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+  }
+
+  .section-hobbies{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+  }
+  
+  .button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  @media (max-width:500px){
+    .head-section, .section-edu, .section-pro{
+      display: block;
+    }
+    textarea{
+      resize: vertical;
+      width: 80%;
+      max-width: 80%;
+    }
+  }

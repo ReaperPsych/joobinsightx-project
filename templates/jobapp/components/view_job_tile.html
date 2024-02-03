@@ -1,0 +1,46 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/jobapp/components/view_job_tile.css' %}"
+    />
+  </head>
+  <body>
+    {% for result in search_results %}
+    <div class="job-container">
+      <div class="job-card">
+        <div class="job-detail">
+          <div class="job-title">
+            <a href="{% url 'view_job' job_id=result.id %}"
+              ><span>{{ result.position }}</span></a
+            >
+          </div>
+          <div class="comapny-name">
+            <span>Company: {{ result.employer.name }}</span>
+          </div>
+          <div class="comany-location"><span>{{result.address}}</span></div>
+          <div class="job-deadline">
+            <span><i>Apply before : {{result.date}}</i></span>
+          </div>
+          <div class="job-desc"><span>{{result.description}}</span></div>
+          <button class="job-bookmark">
+            {% if result.id in saved_job_ids %}
+            <a href="{% url 'save_job' job_id=result.id %}">
+              <i class="material-icons" id="bookmark-added">bookmark_added</i>
+            </a>
+            {% else %}
+            <a href="{% url 'save_job' job_id=result.id %}">
+              <i class="material-icons" id="bookmark-add">bookmark_add</i>
+            </a>
+            {% endif %}
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>

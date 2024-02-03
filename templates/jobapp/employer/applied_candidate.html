@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/employer/applied_candidate.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if applied_users %}
+{% for user in applied_users  %}
+<div class="body-container">
+
+
+    <table>
+        <thead>
+            <h2>{{job_position}}</h2>
+            <tr>
+                <th >{{user.name}}</th>
+                <th >Email</th>
+                <th >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}e</td>
+                <td>
+                    <button><a href="#">Message</a></button>
+                    <button><a href="{% url "cv_view" user_id=user.id %}">View CV</a></button>
+                    <button><a href="#">Hire</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+{% endif %}
+
+
+
+{% endblock content %}

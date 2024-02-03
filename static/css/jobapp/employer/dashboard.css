@@ -1,0 +1,77 @@
+main {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+.card h3 {
+    margin-top: 0;
+}
+.card p {
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.btn-container {
+    display: flex;
+    align-items: center;
+}
+.btn {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-edit:hover {
+    background-color: #304a65;
+    color: white;
+}
+
+.btn-applied:hover {
+    background-color: #10862c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #82333b;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #007bff;
+    color: #fff;
+}
+.btn-applied {
+    background-color: #28a745;
+    color: #fff;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+button a{
+    color: white;
+    text-decoration: none;
+}

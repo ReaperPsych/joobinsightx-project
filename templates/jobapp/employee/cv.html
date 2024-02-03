@@ -1,0 +1,140 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/employee/cv.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% if cv_instance %}
+
+<div id="page-wrap">
+
+    {% if cv_instance.photo %}
+    <img src="{{ cv_instance.photo.url }}" alt="Photo of {{ cv_instance.full_name }}" id="pic" />
+{% else %}
+    <p id="pic">No photo available</p>
+{% endif %}
+
+    <div id="contact-info" class="vcard">
+
+        <h1 class="fn">{{cv_instance.full_name}} <span><h4>{{ cv_instance.profession }}</h4></span></h1>
+
+
+        <p>
+            Cell: <span class="tel">{{ cv_instance.phone }}</span><br />
+            Email: <a class="email" href="mailto:{{ cv_instance.gmail }}">{{ cv_instance.gmail }}</a><br>
+            Github: <a href="{{ cv_instance.github }}">{{ cv_instance.github }}</a><br>
+            Linkedin: <a href="{{ cv_instance.linkedin }}">{{ cv_instance.linkedin }}</a>
+
+        </p>
+    </div>
+
+    <div id="objective">
+        <p>
+            {{ cv_instance.description }}
+        </p>
+    </div>
+
+    <div class="clear"></div>
+
+    <dl>
+        <dd class="clear"></dd>
+
+        <dt>Education</dt>
+        <dd>
+            <h2>{{ cv_instance.degree1 }} <span>{{ cv_instance.graduation_year1 }}</span></h2>
+            <p>{{ cv_instance.university1 }}<br/>
+            </p>
+        </dd>
+
+        <dd>
+            <h2>{{ cv_instance.degree2 }} <span>{{ cv_instance.graduation_year2 }}</span></h2>
+            <p>{{ cv_instance.university2 }}<br/>
+            </p>
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Experience</dt>
+        <dd>
+            <h2>{{ cv_instance.company1 }}<span>{{ cv_instance.project1 }}</span></h2>
+            <p>{{ cv_instance.experience_description1 }}s</p>
+            <ul>
+            </ul>
+
+            <h2>{{ cv_instance.company2 }} <span>{{ cv_instance.project2 }}</span></h2>
+            <p>{{ cv_instance.experience_description2 }}s</p>
+        </dd>
+        <dd class="clear"></dd>
+
+        <dt>Skills</dt>
+        <dd>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <ul>
+                        <li>{{ cv_instance.skill1 }}</li>
+                        <li>{{ cv_instance.skill2 }}</li>
+                    </ul>
+                </div>
+                <div class="skills-column">
+                    <ul>
+                        <li>{{ cv_instance.skill3 }}</li>
+                        <li>{{ cv_instance.skill4 }}</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </dd>
+        <dd class="clear"></dd>
+
+
+        <dt>Hobbies</dt>
+        <dd>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <ul>
+                        <li>{{ cv_instance.hobbies1 }}</li>
+                        <li>{{ cv_instance.hobbies2 }}</li>
+                    </ul>
+                </div>
+                <div class="skills-column">
+                    <ul>
+                        <li>{{ cv_instance.hobbies3 }}</li>
+                        <li>{{ cv_instance.hobbies4 }}</li>
+                    </ul>
+                </div>
+            </div>
+        </dd>
+        <dd class="clear"></dd>
+
+        <dt>References</dt>
+        <dd>
+            <p>{{ cv_instance.reference }}</p>
+        </dd>
+
+        <dd class="clear"></dd>
+    </dl>
+
+    <div class="clear"></div>
+    {% if current_user_account_type == '1' %}
+    <a href="{% url 'update_cv' %}"><button class="button">Update CV</button></a>
+</div>
+{% endif %}
+
+{% else %}
+
+<div class="creat-btn">
+    <a href="{% url 'update_cv' %}"><button class="create-button">Create CV</button></a>
+</div>
+
+
+
+{% endif %}
+
+{% include "alerts.html" %}
+
+{% endblock %}

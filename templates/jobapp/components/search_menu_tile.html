@@ -1,0 +1,36 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/jobapp/components/search_menu_tile.css' %}">
+</head>
+
+<body>
+    <form action="{% url "search_job" %}" method="post">
+        {% csrf_token %}
+        <div class="search-pg">
+            <h3 class="job-head"> Find jobs you like.</h3>
+            <div class="search-box">
+
+                <div class="search-form">
+                    <label for="position" class="input-label">Position</label>
+                    <input type="text" id="position" name="position-search" placeholder="Enter Position" class="input-field" value= "{{search_position}}">
+                </div>
+                <div class="search-form">
+                    <label for="location" class="input-label">Location</label>
+                    <input type="text" id="location" name="location-search" placeholder="Enter Location" class="input-field" value= "{{search_location}}">
+                </div>
+                <button type="submit" class="search-button">
+                    <i class="fa fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

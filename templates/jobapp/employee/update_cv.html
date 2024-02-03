@@ -1,0 +1,212 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/employee/update_cv.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My CV</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form">
+      <form action="#" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Personal Information -->
+        <h2 class="info">Personal Information</h2>
+        <div class="head-section">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Adam Smith" value="{{ cv_instance.full_name }}" required>
+          </div>
+
+          <div class="form-group">
+            <label for="imageUpload">Add profile pic:</label>
+            <input type="file" name="photo" id="imageUpload" accept="image/*" value="{{ cv_instance.photo.url }}">
+          </div>
+
+          <div class="form-group">
+            <label for="profession">Profession</label>
+            <input type="text" id="profession" name="profession" placeholder="Software Developer" value="{{ cv_instance.profession }}" required>
+          </div>
+
+          <div class="form-group">
+            <label for="gmail">Gmail</label>
+            <input type="email" id="gmail" name="gmail" placeholder="Adamsmith@gmail.com" value="{{ cv_instance.gmail }}" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="9876543210" value="{{ cv_instance.phone }}" required>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com" value="{{ cv_instance.linkedin }}" required>
+          </div>
+
+          <div class="form-group">
+            <label for="github">GitHub</label>
+            <input type="url" id="github" name="github" placeholder="github.com" value="{{ cv_instance.github }}" required>
+          </div>
+        </div>
+
+        <!-- About Yourself -->
+        <h2 class="info">About Yourself</h2>
+        <div class="section-about">
+          <div class="form-group">
+            <label for="about">About You</label>
+            <textarea id="about" name="description" rows="4" cols="50" placeholder="About me...." required>{{ cv_instance.description }}</textarea>
+          </div>
+        </div>
+
+        <!-- Educational Background -->
+        <h2  class="info">Educational Background</h2>
+        <div class="section-edu">
+          <div class="education-item-1">
+            <div class="form-group">
+              <label for="edu1">Degree 1</label>
+              <input type="text" id="edu1" name="degree1" placeholder="e.g., Master's in Computer Science" value="{{ cv_instance.degree1 }}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="uni1">University</label>
+              <input type="text" id="uni1" name="university1" placeholder="e.g., Oxford University" value="{{ cv_instance.university1 }}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="edu1_year">Graduation Year</label>
+              <input type="text" id="edu1_year" name="graduation_year1" placeholder="e.g., 2022" value="{{ cv_instance.graduation_year1 }}" required>
+            </div>
+          </div>
+
+          <div class="education-item-2">
+            <div class="form-group">
+              <label for="edu2">Degree 2</label>
+              <input type="text" id="edu2" name="degree2" placeholder="e.g., Bachelor's in Information Technology" value="{{ cv_instance.degree2 }}">
+            </div>
+
+            <div class="form-group">
+              <label for="uni2">University</label>
+              <input type="text" id="uni2" name="university2" placeholder="e.g., Oxford University" value="{{ cv_instance.university2 }}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="edu2_year">Graduation Year</label>
+              <input type="text" id="edu2_year" name="graduation_year2" placeholder="e.g., 2018" value="{{ cv_instance.graduation_year2 }}">
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <h2 class="info">Experience</h2>
+        <div class="section-pro">
+          <div class="project-item">
+            <div class="form-group">
+              <label for="project1">Position and Date</label>
+              <input type="text" id="project1" name="project1" placeholder="e.g., Project Manager, 2005-2007" value="{{ cv_instance.project1 }}">
+            </div>
+            <div class="form-group">
+                <label for="project1">Company-Name </label>
+                <input type="text" id="project1" name="company1" placeholder="Leapfrog" value="{{ cv_instance.company1 }}">
+              </div>
+
+            <div class="form-group">
+              <label for="project1_desc">Project 1 Description</label>
+              <textarea id="project1_desc" name="experience_description1" rows="4" cols="40"
+                placeholder="e.g., Project 1 Description">{{ cv_instance.experience_description1 }}</textarea>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="form-group">
+              <label for="project2">Position and Date</label>
+              <input type="text" id="project2" name="project2" placeholder="e.g., Software Developer, 2008-2010 " value="{{ cv_instance.project2 }}">
+            </div>
+            <div class="form-group">
+                <label for="project2">Company-Name (if) </label>
+                <input type="text" id="project2" name="company2" placeholder="Leapfrog" value="{{ cv_instance.company2 }}">
+              </div>
+
+            <div class="form-group">
+              <label for="project2_desc">Project 2 Description</label>
+              <textarea id="project2_desc" name="experience_description2" rows="4" cols="40"
+                placeholder="e.g., Project 2 Description">{{ cv_instance.experience_description2 }}</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <h2 class="info">Skills</h2>
+        <div class="section-skill">
+            <div class="form-group">
+                <label for="skills">Skill-1</label>
+                <input type="text" id="skills" name="skill1" placeholder="Linux" value="{{ cv_instance.skill1 }}">
+              </div>
+              <div class="form-group">
+                <label for="skills">Skill-2</label>
+                <input type="text" id="skills" name="skill2" placeholder="Azure" value="{{ cv_instance.skill2 }}">
+              </div>
+              <div class="form-group">
+                <label for="skills">Skill-3</label>
+                <input type="text" id="skills" name="skill3" placeholder="Powershell" value="{{ cv_instance.skill3 }}">
+              </div>
+              <div class="form-group">
+                <label for="skills">Skill-4</label>
+                <input type="text" id="skills" name="skill4" placeholder="Github/gitlab" value="{{ cv_instance.skill4 }}">
+              </div>
+        </div>
+
+        <!-- hobbies -->
+        <h2 class="info">Hobbies</h2>
+        <div class="section-hobbies">
+          <div class="form-group">
+            <label for="hobbies">Hobbie-1</label>
+            <input type="text" id="hobbies" name="hobbies1" placeholder="Reading Books" value="{{ cv_instance.hobbies1 }}">
+          </div>
+          <div class="form-group">
+            <label for="hobbies">Hobbie-2</label>
+            <input type="text" id="hobbies" name="hobbies2" placeholder="Watching movies" value="{{ cv_instance.hobbies2 }}">
+          </div>
+          <div class="form-group">
+            <label for="hobbies">Hobbie-3</label>
+            <input type="text" id="hobbies" name="hobbies3" placeholder="Swimming" value="{{ cv_instance.hobbies3 }}">
+          </div>
+          <div class="form-group">
+            <label for="hobbies">Hobbie-4</label>
+            <input type="text" id="hobbies" name="hobbies4" placeholder="Plating games" value="{{ cv_instance.hobbies4 }}">
+          </div>
+        </div>
+
+        <!-- refrence -->
+        <h2 class="info">Refrence</h2>
+        <div class="section-refrence">
+          <div class="form-group">
+            <label for="refrence">Refrence</label>
+            <input type="text" id="refrence" name="reference" placeholder="Adam Smith" value="{{ cv_instance.reference }}">
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{% endblock %}

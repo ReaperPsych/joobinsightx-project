@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/jobapp/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!--search menu starts here-->
+<form action="{% url "search_job" %}" method="post">
+  {% csrf_token %}
+  <div class="search-menu">
+    <div class="container-body">
+
+    <h2 class="heading">Find a job that fits your expertise.</h2>
+      <div class = search-body>
+      <div class="search-form">
+        <label for="position" class="input-label">Position</label>
+        <input type="text" id="position" name="position-search" placeholder="Software Developer" class="input-field">
+      </div>
+
+      <div class="search-form">
+        <label for="position" class="input-label">Location</label>
+        <input type="text" id="location" name="location-search" placeholder="Kathmandu" class="input-field">
+      </div>
+
+        <button type="submit" class="search-button"> Search</button>
+        </div>
+    </div>
+  </div>
+</form>
+
+
+
+<!--Job-card starts here featured jobs-->
+  {% comment %} <div class="card-outer">
+    <div class="card-title">
+      <h2>Featured Jobs</h2>
+    </div>
+  <div class="container-job">
+    <div class="job-card-container">
+      <div class="job-card">
+        <div class="card-img">
+          <img src="{% static 'images/log-out.png' %}" alt="img" sizes="20*20" srcset="">
+        </div>
+        <div class="card-info">
+          <div class="card-job-title">
+            <p>Python</p>
+          </div>
+          <div class="card-job-company">
+            <p>Shangrila Microsystem</p>
+          </div>
+          <div class="card-job-locaion">
+            <p>kathmandu</p>
+          </div>
+          <div class="card-job-desc">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, fugiat!</p>
+          </div>
+          <div class="card-job-time">
+            <p>Time</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> {% endcomment %}
+
+
+
+
+
+
+{% include "alerts.html" %}
+{% endblock %}

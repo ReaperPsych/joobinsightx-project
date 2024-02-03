@@ -1,0 +1,91 @@
+/* Global Styles */
+
+/* Background and Text Colors */
+body {
+  background-color: #f5f5f5; /* Light gray background */
+  color: #333; /* Dark gray text */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #fff; /* White navbar background */
+  padding: 13px 0;
+}
+
+.nav-menu {
+  color: #007BFF; /* Blue for menu links */
+  padding-left: 30px !important;
+  font-weight: 400;
+}
+
+.nav-menu:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.nav-menu-btn {
+  margin-left: 20px;
+  color: #ff5555; /* Red for logout button */
+  border: none;
+}
+
+/* Body Section for Job Search Element Styles */
+.job-form-box {
+  background-color: #fff; /* White background for job search element */
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Footer Styles */
+.page-footer {
+  background-color: #333; /* Dark gray footer background */
+  color: #fff; /* White text in the footer */
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  flex-wrap: wrap;
+  height: 250px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.foot-desc {
+  margin: 25px;
+  font-size: 16px;
+  max-width: 450px;
+}
+
+.foot-cont {
+  font-size: 14px;
+  margin: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  margin-right: 20px;
+}
+
+.contact-info .material-icons {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Responsive Styles for Small Screens */
+@media (max-width: 800px) {
+  .page-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 450px;
+  }
+
+  .foot-cont {
+    margin-top: 20px;
+  }
+}

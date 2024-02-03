@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Login</title>
+</head>
+
+<body>
+
+  {% include 'alerts.html' %}
+
+  <div class="container">
+    <h3>Login</h3>
+    <form action="{% url 'login_auth' %}" method = 'post'>
+
+      {% csrf_token %}
+
+      <div class="form-input">
+        <i class="material-icons">person</i>
+        <input type="email" placeholder="email" name="email">
+      </div>
+
+      <div class="form-input">
+        <i class="material-icons">lock</i>
+        <input type="password" placeholder="Password" name="password">
+      </div>
+
+      <div class="button-container">
+        <button type="submit">Log In</button>
+      </div>
+
+      <p class="signup"> Don't have an account <a class="signnup_text" href="{% url 'signup_auth' %}">Sign Up</a></p>
+      <p class="home"><a href="{% url "home" %}">Home</a></p>
+
+    </form>
+  </div>
+</body>
+
+</html>

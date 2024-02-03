@@ -1,0 +1,166 @@
+.job-container {
+  margin-bottom: 10px;
+  padding: 40px 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+a{
+  text-decoration: none;
+
+}
+.job-card {
+  max-width: 1000px;
+  min-width: 1000px;
+  display: flex;
+  /* border: 1px solid red; */
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+.job-image img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px;
+}
+
+.job-detail {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.job-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.company-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+.company-location {
+  font-size: 16px;
+  color: #777;
+}
+
+.job-deadline{
+  font-size: small;
+  color: #333;
+}
+
+.job-desc {
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #333;
+  max-height: calc(3 * 1.6em);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
+
+.job-bookmark {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.job-bookmark img {
+  max-width: 24px;
+  height: auto;
+}
+
+
+
+@media (max-width: 990px) {
+  /* Existing styles */
+
+  .job-container {
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .job-card {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    background-color: #fff;
+  }
+
+  .job-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .job-detail {
+    padding: 10px;
+    flex-grow: 1;
+  }
+
+  .job-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .company-name {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #777;
+  }
+
+  .company-location {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .job-desc {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+    max-height: calc(3 * 1.6em);
+    overflow: visible;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .job-bookmark {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 10px 0;
+  }
+
+  .job-bookmark img {
+    max-width: 24px;
+    height: auto;
+  }
+}
